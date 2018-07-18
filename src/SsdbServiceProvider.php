@@ -15,9 +15,9 @@ class SsdbServiceProvider extends ServiceProvider
     {
         $this->app->singleton('ssdb.simple', function () {
             return new Simple(
-                config('cache.stores.ssdb.host'),
-                config('cache.stores.ssdb.port'),
-                config('cache.stores.ssdb.timeout')
+                config('cache.stores.ssdb.host', '127.0.0.1'),
+                config('cache.stores.ssdb.port', '8888'),
+                config('cache.stores.ssdb.timeout', 2000)
             );
         });
     }
