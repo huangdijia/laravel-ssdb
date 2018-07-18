@@ -1,5 +1,5 @@
 {
-    "name": "huangdijia/ssdb",
+    "name": "huangdijia/laravel-ssdb",
     "description": "ssdb for laravel",
     "type": "library",
     "keywords": [
