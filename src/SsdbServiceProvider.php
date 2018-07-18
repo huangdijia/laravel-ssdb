@@ -2,13 +2,17 @@
 
 namespace Huangdijia\Ssdb;
 
+use Huangdijia\Ssdb\Cache\Ssdb;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\ServiceProvider;
 
 class SsdbServiceProvider extends ServiceProvider
 {
     public function boot()
     {
-        //
+        Cache::extend('ssdb', function ($app) {
+            return Cache::repository(new Ssdb($app));
+        });
     }
 
     public function register()
