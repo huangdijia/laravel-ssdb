@@ -2,6 +2,11 @@
     "name": "huangdijia/ssdb",
     "description": "ssdb for laravel",
     "type": "library",
+    "keywords": [
+        "laravel",
+        "ssdb"
+    ],
+    "homepage": "https://github.com/huangdijia/ssdb",
     "license": "MIT",
     "authors": [
         {
@@ -9,9 +14,10 @@
             "email": "huangdijia@gmail.com"
         }
     ],
-    "minimum-stability": "beta",
+    "minimum-stability": "stable",
     "require": {
-        "php": ">=5.0.0"
+        "php": ">=5.0.0",
+        "laravel/framework": "~5.5"
     },
     "autoload": {
         "psr-4": {
