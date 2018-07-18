@@ -27,12 +27,27 @@ composer require huangdijia/ssdb
 
 # Usage
 
+As Facades:
+
 ~~~php
 use Huangdijia\Ssdb\Facades\Ssdb;
 
 ...
     Ssdb::set('key', 'value');
     $value = Ssdb::get('key');
+~~~
+
+As Cache:
+
+~~~php
+// config/cache.php
+    'default' => 'ssdb',
+~~~
+
+or
+
+~~~env
+CACHE_DRIVER=ssdb
 ~~~
 
 # Other
