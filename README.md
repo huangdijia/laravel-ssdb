@@ -10,5 +10,30 @@ composer require huangdijia/ssdb
 
 # Configurations
 
+~~~php
+// config/cache.php
+    'stores' => [
+        'ssdb' => [
+            'host'    => '127.0.0.1',
+            'port'    => 8888,
+            'timeout' => 0,
+        ],
+        // ...
+    ]
+~~~
+
+# Usage
+
+~~~php
+use Huangdijia\Ssdb\Facades\Ssdb;
+
+...
+    Ssdb::set('key', 'value');
+    $value = Ssdb::get('key');
+~~~
+
 # Other
 
+SSDB PHP API
+
+> http://ssdb.io/docs/zh_cn/php/index.html
