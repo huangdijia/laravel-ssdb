@@ -1,6 +1,6 @@
 # Requirements
 
-* PHP >= 5.5
+* PHP >= 7.0
 * Laravel >= 5.5
 
 # Installation
@@ -28,7 +28,7 @@ composer require huangdijia/ssdb
 
 # Usage
 
-As Facades:
+## As Facades
 
 ~~~php
 use Huangdijia\Ssdb\Facades\Ssdb;
@@ -38,7 +38,7 @@ use Huangdijia\Ssdb\Facades\Ssdb;
     $value = Ssdb::get('key');
 ~~~
 
-As Cache:
+## As Cache Store Driver
 
 ~~~php
 // config/cache.php
@@ -47,8 +47,16 @@ As Cache:
 
 or
 
-~~~env
+~~~
+# .env
 CACHE_DRIVER=ssdb
+~~~
+
+## As Session Manager
+
+~~~php
+// config/session.php
+    'driver' => 'ssdb',
 ~~~
 
 # Other
