@@ -13,7 +13,11 @@ class Ssdb implements Store
     public function __construct($app)
     {
         $config       = $this->_getConfig($app);
-        $this->ssdb   = new Simple($config['host'], $config['port']);
+        $this->ssdb   = new Simple(
+            $config['host'],
+            $config['port'],
+            $config['timeout']
+        );
         $this->prefix = $config['prefix'];
     }
 
@@ -73,13 +77,13 @@ class Ssdb implements Store
 
     private function _getConfig($app)
     {
-        $config = $app['config']['cache']['stores']['ssdb'];
+        $config = $app['config']['cache']['stores']['ssdb'] ?? [];
 
         return [
-            'host'     => array_get($config, 'host', '127.0.0.1'),
-            'port'     => array_get($config, 'port', 8888),
-            'time_out' => array_get($config, 'timeout', 2000),
-            'prefix'   => array_get($app['config']['cache'], 'prefix'),
+            'host'    => array_get($config, 'host', '127.0.0.1'),
+            'port'    => array_get($config, 'port', 8888),
+            'timeout' => array_get($config, 'timeout', 2000),
+            'prefix'  => array_get($app['config']['cache'], 'prefix'),
         ];
     }
 }
