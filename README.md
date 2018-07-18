@@ -47,8 +47,9 @@ use Huangdijia\Ssdb\Facades\Ssdb;
 
 or
 
-~~~
-# .env
+set .env as
+
+~~~env
 CACHE_DRIVER=ssdb
 ~~~
 
@@ -57,6 +58,14 @@ CACHE_DRIVER=ssdb
 ~~~php
 // config/session.php
     'driver' => 'ssdb',
+~~~
+
+or
+
+set .env as
+
+~~~env
+SESSION_DRIVER=ssdb
 ~~~
 
 # Other
