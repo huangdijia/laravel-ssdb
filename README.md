@@ -17,6 +17,7 @@ composer require huangdijia/ssdb
 // config/cache.php
     'stores' => [
         'ssdb' => [
+            'driver'  => 'ssdb',
             'host'    => '127.0.0.1',
             'port'    => 8888,
             'timeout' => 2000,

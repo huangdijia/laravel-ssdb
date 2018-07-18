@@ -12,8 +12,8 @@ class Ssdb implements Store
 
     public function __construct($app)
     {
-        $config       = $this->_getConfig($app);
-        $this->ssdb   = new Simple(
+        $config     = $this->_getConfig($app);
+        $this->ssdb = new Simple(
             $config['host'],
             $config['port'],
             $config['timeout']
@@ -33,25 +33,30 @@ class Ssdb implements Store
 
     public function many(array $keys)
     {
-        // return $this->_socket->multi_get($keys);
+        $ret = [];
+        foreach ($keys as $key) {
+            $ret[$key] = $this->ssdb->get($this->prefix . '_' . $key);
+        }
+        return $ret;
     }
 
     public function putMany(array $values, $minutes)
     {
-        // TODO: Implement putMany() method.
+        foreach ($values as $key => $value) {
+            $this->ssdb->set($this->prefix . '_' . $key, $value, $minutes);
+        }
+        return true;
     }
 
     public function increment($key, $value = 1)
     {
         $value = (int) $value;
-
         return $this->ssdb->incr($this->prefix . '_' . $key, $value);
     }
 
     public function decrement($key, $value = 1)
     {
         $value = (int) $value;
-
         return $this->ssdb->incr($this->prefix . '_' . $key, -$value);
     }
 
