@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Facades;
+namespace Huangdijia\Ssdb\Facades;
 
 use Illuminate\Support\Facades\Facade;
 

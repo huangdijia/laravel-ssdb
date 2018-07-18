@@ -8,9 +8,7 @@ class SsdbServiceProvider extends ServiceProvider
 {
     public function boot()
     {
-        if ($this->app->runningInConsole()) {
-            $this->publishes([__DIR__ . '/../Facades' => app_path() . '/Facades'], 'Ssdb.php');
-        }
+        //
     }
 
     public function register()
