@@ -16,7 +16,7 @@ composer require huangdijia/ssdb
         'ssdb' => [
             'host'    => '127.0.0.1',
             'port'    => 8888,
-            'timeout' => 0,
+            'timeout' => 2000,
         ],
         // ...
     ]
