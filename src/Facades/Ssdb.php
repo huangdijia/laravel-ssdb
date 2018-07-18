@@ -6,7 +6,8 @@ use Illuminate\Support\Facades\Facade;
 
 class Ssdb extends Facade
 {
-    protected static function getFacadeAccessor() {
-             return 'ssdb.simple'; 
+    protected static function getFacadeAccessor()
+    {
+        return 'ssdb.simple'; 
     }
 }
