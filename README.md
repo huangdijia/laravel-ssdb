@@ -76,4 +76,4 @@ SSDB PHP API
 
 # License
 
-laravel-ipip is licensed under The MIT License (MIT).
+laravel-ssdb is licensed under The MIT License (MIT).
