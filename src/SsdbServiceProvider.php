@@ -10,13 +10,6 @@ use Illuminate\Support\ServiceProvider;
 
 class SsdbServiceProvider extends ServiceProvider
 {
-    /**
-     * 标记着提供器是延迟加载的
-     *
-     * @var bool
-     */
-    protected $defer = true;
-
     public function boot()
     {
         Cache::extend('ssdb', function ($app) {
@@ -41,15 +34,5 @@ class SsdbServiceProvider extends ServiceProvider
                 config('cache.stores.ssdb.timeout', 2000)
             );
         });
-    }
-
-    /**
-     * 取得提供者提供的服务
-     *
-     * @return array
-     */
-    public function provides()
-    {
-        return ['ssdb.simple'];
     }
 }
