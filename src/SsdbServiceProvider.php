@@ -5,6 +5,7 @@ namespace Huangdijia\Ssdb;
 use Huangdijia\Ssdb\Cache\Ssdb;
 use Huangdijia\Ssdb\Session\SsdbSessionHandler;
 use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Support\ServiceProvider;
 
 class SsdbServiceProvider extends ServiceProvider
