@@ -6,7 +6,7 @@
         "laravel",
         "ssdb"
     ],
-    "homepage": "https://github.com/huangdijia/ssdb",
+    "homepage": "https://github.com/huangdijia/laravel-ssdb",
     "license": "MIT",
     "authors": [
         {
