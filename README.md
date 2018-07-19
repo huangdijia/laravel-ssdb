@@ -73,3 +73,7 @@ SESSION_DRIVER=ssdb
 SSDB PHP API
 
 > http://ssdb.io/docs/zh_cn/php/index.html
+
+# License
+
+laravel-ipip is licensed under The MIT License (MIT).
