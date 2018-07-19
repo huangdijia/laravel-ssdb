@@ -14,7 +14,7 @@ class SsdbServiceProvider extends ServiceProvider
      *
      * @var bool
      */
-    protected $defer = true;
+    protected $defer = false;
 
     public function boot()
     {
