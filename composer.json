@@ -14,7 +14,7 @@
             "email": "huangdijia@gmail.com"
         }
     ],
-    "minimum-stability": "stable",
+    "minimum-stability": "dev",
     "require": {
         "php": ">=7.0.0",
         "laravel/framework": "~5.5"
