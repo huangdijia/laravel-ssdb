@@ -20,6 +20,9 @@
         "laravel/framework": "~5.5"
     },
     "autoload": {
+        "files": [
+            "src/helpers.php"
+        ],
         "psr-4": {
             "Huangdijia\\Ssdb\\": "src/"
         }
