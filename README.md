@@ -38,6 +38,13 @@ use Huangdijia\Ssdb\Facades\Ssdb;
     $value = Ssdb::get('key');
 ~~~
 
+## As Helper
+
+~~~php
+ssdb()->set('key');
+ssdb()->get('key');
+~~~
+
 ## As Cache Store Driver
 
 ~~~php
