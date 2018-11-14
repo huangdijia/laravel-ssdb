@@ -10,6 +10,8 @@ use Illuminate\Support\ServiceProvider;
 
 class SsdbServiceProvider extends ServiceProvider
 {
+    protected $defer = true;
+
     public function boot()
     {
         Cache::extend('ssdb', function ($app) {
@@ -34,5 +36,12 @@ class SsdbServiceProvider extends ServiceProvider
                 config('cache.stores.ssdb.timeout', 2000)
             );
         });
+    }
+
+    public function provides()
+    {
+        return [
+            'ssdb.simple',
+        ];
     }
 }
