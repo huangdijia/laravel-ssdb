@@ -17,6 +17,7 @@ class SsdbServiceProvider extends ServiceProvider
         Cache::extend('ssdb', function ($app) {
             return Cache::repository(new Ssdb($app));
         });
+
         Session::extend('ssdb', function ($app) {
             return new SsdbSessionHandler($app);
         });
@@ -29,18 +30,21 @@ class SsdbServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->singleton('ssdb.simple', function () {
+        $this->app->singleton(Simple::class, function () {
             return new Simple(
                 config('cache.stores.ssdb.host', '127.0.0.1'),
                 config('cache.stores.ssdb.port', '8888'),
                 config('cache.stores.ssdb.timeout', 2000)
             );
         });
+
+        $this->app->alias(Simple::class, 'ssdb.simple');
     }
 
     public function provides()
     {
         return [
+            Simple::class,
             'ssdb.simple',
         ];
     }

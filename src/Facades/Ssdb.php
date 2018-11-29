@@ -2,6 +2,7 @@
 
 namespace Huangdijia\Ssdb\Facades;
 
+use Huangdijia\Ssdb\Simple;
 use Illuminate\Support\Facades\Facade;
 
 /**
@@ -103,6 +104,6 @@ class Ssdb extends Facade
 {
     protected static function getFacadeAccessor()
     {
-        return 'ssdb.simple'; 
+        return Simple::class; 
     }
 }
