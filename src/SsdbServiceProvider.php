@@ -10,7 +10,7 @@ use Illuminate\Support\ServiceProvider;
 
 class SsdbServiceProvider extends ServiceProvider
 {
-    protected $defer = true;
+    protected $defer = false;
 
     public function boot()
     {
