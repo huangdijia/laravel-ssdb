@@ -2,8 +2,6 @@
 
 namespace Huangdijia\Ssdb\Session;
 
-use Huangdijia\Ssdb\Simple;
-
 class SsdbSessionHandler implements \SessionHandlerInterface
 {
     private $ssdb;
@@ -12,11 +10,7 @@ class SsdbSessionHandler implements \SessionHandlerInterface
     public function __construct($app)
     {
         $this->lifetime = $app['config']['session']['lifetime'] ?? 120;
-        $this->ssdb     = new Simple(
-            $app['config']['cache']['stores']['ssdb']['host'] ?? '127.0.0.1',
-            $app['config']['cache']['stores']['ssdb']['port'] ?? 8888,
-            $app['config']['cache']['stores']['ssdb']['timeout'] ?? 2000
-        );
+        $this->ssdb     = app('ssdb.simple');
     }
     public function open($savePath, $sessionName)
     {
