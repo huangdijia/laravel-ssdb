@@ -8,7 +8,7 @@
 * PHP >= 7.0
 * Laravel >= 5.5
 
-# Installation
+## Installation
 
 First, install laravel 5.5, and make sure that the database connection settings are correct.
 
