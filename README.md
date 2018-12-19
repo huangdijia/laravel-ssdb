@@ -1,4 +1,9 @@
-# Requirements
+# laravel-ssdb
+
+[![Latest Stable Version](https://poser.pugx.org/huangdijia/laravel-ssdb/version.png)](https://packagist.org/packages/huangdijia/laravel-ssdb)
+[![Total Downloads](https://poser.pugx.org/huangdijia/laravel-ssdb/d/total.png)](https://packagist.org/packages/huangdijia/laravel-ssdb)
+
+## Requirements
 
 * PHP >= 7.0
 * Laravel >= 5.5
@@ -11,7 +16,7 @@ First, install laravel 5.5, and make sure that the database connection settings 
 composer require huangdijia/laravel-ssdb
 ~~~
 
-# Configurations
+## Configurations
 
 ~~~php
 // config/cache.php
@@ -26,9 +31,9 @@ composer require huangdijia/laravel-ssdb
     ]
 ~~~
 
-# Usage
+## Usage
 
-## As Facades
+### As Facades
 
 ~~~php
 use Huangdijia\Ssdb\Facades\Ssdb;
@@ -38,14 +43,14 @@ use Huangdijia\Ssdb\Facades\Ssdb;
     $value = Ssdb::get('key');
 ~~~
 
-## As Helper
+### As Helper
 
 ~~~php
 ssdb()->set('key');
 ssdb()->get('key');
 ~~~
 
-## As Cache Store Driver
+### As Cache Store Driver
 
 ~~~php
 // config/cache.php
@@ -60,7 +65,7 @@ set .env as
 CACHE_DRIVER=ssdb
 ~~~
 
-## As Session Manager
+### As Session Manager
 
 ~~~php
 // config/session.php
@@ -75,12 +80,12 @@ set .env as
 SESSION_DRIVER=ssdb
 ~~~
 
-# Other
+## Other
 
 SSDB PHP API
 
 > http://ssdb.io/docs/zh_cn/php/index.html
 
-# License
+## License
 
 laravel-ssdb is licensed under The MIT License (MIT).
