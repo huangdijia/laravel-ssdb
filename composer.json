@@ -31,7 +31,10 @@
         "laravel": {
             "providers": [
                 "Huangdijia\\Ssdb\\SsdbServiceProvider"
-            ]
+            ],
+            "aliases": {
+                "Ssdb": "Huangdijia\\Ssdb\\Facades\\Ssdb"
+            }
         }
     }
 }
