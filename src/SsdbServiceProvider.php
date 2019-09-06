@@ -14,13 +14,17 @@ class SsdbServiceProvider extends ServiceProvider
 
     public function boot()
     {
-        Cache::extend('ssdb', function ($app) {
-            return Cache::repository(new Ssdb($app));
-        });
+        if ($this->app->has('cache')) {
+            Cache::extend('ssdb', function ($app) {
+                return Cache::repository(new Ssdb($app));
+            });
+        }
 
-        Session::extend('ssdb', function ($app) {
-            return new SsdbSessionHandler($app);
-        });
+        if ($this->app->has('session')) {
+            Session::extend('ssdb', function ($app) {
+                return new SsdbSessionHandler($app);
+            });
+        }
     }
 
     /**
