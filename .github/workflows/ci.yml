@@ -22,7 +22,8 @@ jobs:
           sudo chmod 777 log.txt
           sudo ./ssdb-server -d ssdb.conf
       - name: Test ssdb
-        run: sudo netstat -an | grep 8888
+        # run: sudo netstat -an | grep 8888
+        run: sudo lsof -i:8888
       # - uses: actions/checkout@v1
       - name: Installing php
         uses: shivammathur/setup-php@master
