@@ -28,15 +28,15 @@ jobs:
           php-version: 7.3
           extension-csv: mbstring, xdebug #optional
           ini-values-csv: "post_max_size=256M, short_open_tag=On" #optional
-      - name: Check PHP Version
+      - name: Check php version
         run: php -v
-      - name: Check Composer Version
+      - name: Check composer version
         run: composer -V
-      - name: Check PHP Extensions
+      - name: Check php extensions
         run: php -m
-      # - name: Init laravel app
-      #   run: composer create-project --prefer-dist laravel/laravel webapp
-      # - name: Composer install laravel-ssdb
-      #   run: |
-      #     cd webapp
-      #     composer install huangdijia/laravel-ssdb
+      - name: Init laravel app
+        run: composer create-project --prefer-dist laravel/laravel webapp
+      - name: Composer install laravel-ssdb
+        run: |
+          cd webapp
+          composer install huangdijia/laravel-ssdb
