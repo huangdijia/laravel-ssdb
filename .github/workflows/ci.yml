@@ -8,7 +8,7 @@ jobs:
 
     steps:
       - name: Init
-        run: sudo apt-get install lsof -y
+        run: which lsof
       - name: Install ssdb
         run: |
           cd /tmp
