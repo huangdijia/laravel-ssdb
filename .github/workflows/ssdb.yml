@@ -4,14 +4,31 @@ on: [push]
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
-    
+
     steps:
-    - uses: actions/checkout@v1
-    - name: Run a one-line script
-      run: echo Hello, world!
-    - name: Run a multi-line script
-      run: |
-        echo Add other actions to build,
-        echo test, and deploy your project.
+      - uses: actions/checkout@v1
+      - name: Install ssdb
+        run: |
+          cd /tmp
+          wget --no-check-certificate https://github.com/ideawu/ssdb/archive/master.zip
+          unzip master
+          cd ssdb-master
+          make
+          sudo make install
+      - name: Start ssdb
+        run: |
+          cd /usr/local/ssdb
+          ./ssdb-server -d ssdb.conf
+      - name: Installing PHP
+        uses: shivammathur/setup-php@master
+        with:
+          php-version: 7.3
+          extension-csv: mbstring, xdebug #optional
+          ini-values-csv: "post_max_size=256M, short_open_tag=On" #optional
+      - name: Check PHP Version
+        run: php -v
+      - name: Check Composer Version
+        run: composer -V
+      - name: Check PHP Extensions
+        run: php -m
