@@ -18,6 +18,8 @@ jobs:
           sudo make install
       - name: Start ssdb
         run: |
+          touch /usr/local/ssdb/log.txt
+          chmod 777 /usr/local/ssdb/log.txt
           sudo /usr/local/ssdb/ssdb-server -d ssdb.conf
       - name: Installing PHP
         uses: shivammathur/setup-php@master
