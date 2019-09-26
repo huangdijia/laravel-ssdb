@@ -4,7 +4,7 @@ on: [push]
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: cen-latest
 
     steps:
       # - uses: actions/checkout@v1
@@ -30,8 +30,8 @@ jobs:
           sudo make install
       - name: Start ssdb
         run: |
-          touch /usr/local/ssdb/log.txt
-          chmod 777 /usr/local/ssdb/log.txt
+          sudo touch /usr/local/ssdb/log.txt
+          sudo chmod 777 /usr/local/ssdb/log.txt
           sudo /usr/local/ssdb/ssdb-server -d ssdb.conf
       - name: Init laravel app
         run: composer create-project --prefer-dist laravel/laravel webapp
