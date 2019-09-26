@@ -39,4 +39,4 @@ jobs:
       - name: Composer install laravel-ssdb
         run: |
           cd webapp
-          composer install huangdijia/laravel-ssdb
+          composer require huangdijia/laravel-ssdb
