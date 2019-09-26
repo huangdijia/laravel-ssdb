@@ -35,7 +35,7 @@ jobs:
           sudo /usr/local/ssdb/ssdb-server -d ssdb.conf
       - name: Init laravel app
         run: composer create-project --prefer-dist laravel/laravel webapp
-      - name: Composer install webapp
+      - name: Composer install laravel-ssdb
         run: |
           cd webapp
           composer install huangdijia/laravel-ssdb
