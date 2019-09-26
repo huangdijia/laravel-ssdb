@@ -7,8 +7,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: init
-        run sudo apt-get install lsof
+      - name: Init
+        run: sudo apt-get install lsof
       - name: Install ssdb
         run: |
           cd /tmp
