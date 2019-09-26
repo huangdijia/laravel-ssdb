@@ -26,8 +26,8 @@ jobs:
         uses: shivammathur/setup-php@master
         with:
           php-version: 7.3
-          extension-csv: mbstring, xdebug #optional
-          ini-values-csv: "post_max_size=256M, short_open_tag=On" #optional
+          extension-csv: mbstring, xdebug
+          ini-values-csv: "post_max_size=256M, short_open_tag=On"
       - name: Check php version
         run: php -v
       - name: Check composer version
