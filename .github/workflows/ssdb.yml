@@ -8,18 +8,18 @@ jobs:
 
     steps:
       # - uses: actions/checkout@v1
-      - name: Installing PHP
-        uses: shivammathur/setup-php@master
-        with:
-          php-version: 7.3
-          extension-csv: mbstring, xdebug #optional
-          ini-values-csv: "post_max_size=256M, short_open_tag=On" #optional
-      - name: Check PHP Version
-        run: php -v
-      - name: Check Composer Version
-        run: composer -V
-      - name: Check PHP Extensions
-        run: php -m
+      # - name: Installing PHP
+      #   uses: shivammathur/setup-php@master
+      #   with:
+      #     php-version: 7.3
+      #     extension-csv: mbstring, xdebug #optional
+      #     ini-values-csv: "post_max_size=256M, short_open_tag=On" #optional
+      # - name: Check PHP Version
+      #   run: php -v
+      # - name: Check Composer Version
+      #   run: composer -V
+      # - name: Check PHP Extensions
+      #   run: php -m
       - name: Install ssdb
         run: |
           cd /tmp
