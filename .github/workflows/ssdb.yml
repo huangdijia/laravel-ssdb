@@ -33,7 +33,7 @@ jobs:
         run: php -m
       - name: Init laravel app
         run: composer create-project --prefer-dist laravel/laravel webapp
-      -name: Composer install webapp
+      - name: Composer install webapp
         run: |
           cd webapp
           composer install huangdijia/laravel-ssdb
