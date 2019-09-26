@@ -21,8 +21,8 @@ jobs:
           sudo touch log.txt
           sudo chmod 777 log.txt
           sudo ./ssdb-server -d ssdb.conf
-      - uses: actions/checkout@v1
-      - name: Installing PHP
+      # - uses: actions/checkout@v1
+      - name: Installing php
         uses: shivammathur/setup-php@master
         with:
           php-version: 7.3
