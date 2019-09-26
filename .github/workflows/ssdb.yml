@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v1
+      # - uses: actions/checkout@v1
       - name: Install ssdb
         run: |
           cd /tmp
@@ -32,3 +32,9 @@ jobs:
         run: composer -V
       - name: Check PHP Extensions
         run: php -m
+      - name: Init laravel app
+        run: composer create-project --prefer-dist laravel/laravel webapp
+      -name: Composer install webapp
+        run: |
+          cd webapp
+          composer install huangdijia/laravel-ssdb
