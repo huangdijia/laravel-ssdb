@@ -46,10 +46,12 @@ jobs:
         run: php -m
 
       - name: Init webapp
-        run: composer create-project --prefer-dist laravel/laravel webapp
+        run: |
+          cd $HOME
+          composer create-project --prefer-dist laravel/laravel webapp
 
       - name: Install laravel-ssdb
         run: |
-          cd webapp
+          cd $HOME/webapp
           composer config repositories.laravel-ssdb path /home/runner/work/laravel-ssdb/*
           composer require "huangdijia/laravel-ssdb:*@dev" --prefer-dist
