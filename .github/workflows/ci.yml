@@ -51,5 +51,5 @@ jobs:
       - name: Install laravel-ssdb
         run: |
           cd webapp
-          composer config repositories.laravel-ssdb path /home/runner/work/laravel-ssdb/
+          composer config repositories.laravel-ssdb path /home/runner/work/laravel-ssdb/*
           composer require "huangdijia/laravel-ssdb:*@dev"
