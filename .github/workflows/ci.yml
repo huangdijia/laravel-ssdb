@@ -1,4 +1,4 @@
-name: Laravel ssdb test
+name: SSDB TEST
 
 on: [push]
 
