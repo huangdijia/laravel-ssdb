@@ -52,4 +52,4 @@ jobs:
         run: |
           cd webapp
           composer config repositories.laravel-ssdb path /home/runner/work/laravel-ssdb/*
-          composer require "huangdijia/laravel-ssdb:*@dev"
+          composer require "huangdijia/laravel-ssdb:*@dev" --prefer-dist
