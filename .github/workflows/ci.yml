@@ -51,7 +51,7 @@ jobs:
         run: |
           composer install
 
-      - name: Test
+      - name: PHPUnit run
         run: |
           ./vendor/bin/phpunit --verbose
 
