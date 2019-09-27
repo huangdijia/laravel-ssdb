@@ -15,33 +15,43 @@ jobs:
           cd ssdb-master
           make
           sudo make install
+
       - name: Start ssdb
         run: |
           cd /usr/local/ssdb/
           sudo touch log.txt
           sudo chmod 777 log.txt
           sudo ./ssdb-server -d ssdb.conf
+
       - name: Test ssdb
         run: |
           ps aux|grep ssdb
           # sudo netstat -an | grep 8888
           # sudo lsof -i:8888
+
       # - uses: actions/checkout@v1
+
       - name: Installing php
         uses: shivammathur/setup-php@master
         with:
           php-version: 7.3
           extension-csv: mbstring, xdebug
           ini-values-csv: "post_max_size=256M, short_open_tag=On"
+
       - name: Check php version
         run: php -v
+
       - name: Check composer version
         run: composer -V
+
       - name: Check php extensions
         run: php -m
-      - name: Init laravel app
+
+      - name: Init webapp
         run: composer create-project --prefer-dist laravel/laravel webapp
-      - name: Composer install laravel-ssdb
+
+      - name: Install laravel-ssdb
         run: |
           cd webapp
-          composer require huangdijia/laravel-ssdb
+          composer config repositories.laravel-ssdb path /home/runner/laravel-app
+          composer require "huangdijia/laravel-ssdb:*@dev"
