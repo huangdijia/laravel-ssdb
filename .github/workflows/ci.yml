@@ -27,8 +27,6 @@ jobs:
       #   run: |
       #     ps aux|grep ssdb
 
-      - uses: actions/checkout@v1
-
       - name: Installing php
         uses: shivammathur/setup-php@master
         with:
@@ -45,13 +43,20 @@ jobs:
       - name: Check php extensions
         run: php -m
 
-      - name: Init webapp
-        run: |
-          cd $HOME
-          composer create-project --prefer-dist laravel/laravel webapp
+      - uses: actions/checkout@v1
 
-      - name: Install laravel-ssdb
+      - name: Composer install
         run: |
-          cd $HOME/webapp
-          composer config repositories.laravel-ssdb path /home/runner/work/laravel-ssdb/*
-          composer require "huangdijia/laravel-ssdb:*@dev" --prefer-dist
+          composer install
+          ./vendor/bin/phpunit --verbose
+
+      # - name: Init webapp
+      #   run: |
+      #     cd $HOME
+      #     composer create-project --prefer-dist laravel/laravel webapp
+
+      # - name: Install laravel-ssdb
+      #   run: |
+      #     cd $HOME/webapp
+      #     composer config repositories.laravel-ssdb path /home/runner/work/laravel-ssdb/*
+      #     composer require "huangdijia/laravel-ssdb:*@dev" --prefer-dist
