@@ -34,22 +34,22 @@ class SsdbServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->singleton(Simple::class, function () {
-            return new Simple(
-                config('cache.stores.ssdb.host', '127.0.0.1'),
-                config('cache.stores.ssdb.port', '8888'),
-                config('cache.stores.ssdb.timeout', 2000)
-            );
+        $this->app->singleton(Manager::class, function ($app) {
+            return new Manager($app['config']->get('database.ssdb', []));
         });
 
-        $this->app->alias(Simple::class, 'ssdb.simple');
+        $this->app->alias(Manager::class, 'ssdb.manager');
     }
 
+    /**
+     * 服务提供
+     * @return array 
+     */
     public function provides()
     {
         return [
-            Simple::class,
-            'ssdb.simple',
+            Manager::class,
+            'ssdb.manager',
         ];
     }
 }

@@ -19,16 +19,19 @@ composer require huangdijia/laravel-ssdb
 ## Configurations
 
 ~~~php
-// config/cache.php
-    'stores' => [
-        'ssdb' => [
-            'driver'  => 'ssdb',
-            'host'    => '127.0.0.1',
-            'port'    => 8888,
-            'timeout' => 2000,
+// config/database.php
+
+    'ssdb'        => [
+        'default'     => 'default',
+        'connections' => [
+            'default' => [
+                'host'    => env('SSDB_HOST', '127.0.0.1'),
+                'port'    => env('SSDB_PORT', 8888),
+                'timeout' => env('SSDB_TIMEOUT', 2000),
+            ],
         ],
         // ...
-    ]
+    ],
 ~~~
 
 ## Usage
@@ -39,8 +42,8 @@ composer require huangdijia/laravel-ssdb
 use Huangdijia\Ssdb\Facades\Ssdb;
 
 ...
-    Ssdb::set('key', 'value');
-    $value = Ssdb::get('key');
+Ssdb::set('key', 'value');
+$value = Ssdb::get('key');
 ~~~
 
 ### As Helper
@@ -54,7 +57,12 @@ ssdb()->get('key');
 
 ~~~php
 // config/cache.php
-    'default' => 'ssdb',
+'default' => 'ssdb',
+
+'ssdb' => [
+    'driver'     => 'ssdb',
+    'connection' => 'default',
+],
 ~~~
 
 or
@@ -69,7 +77,7 @@ CACHE_DRIVER=ssdb
 
 ~~~php
 // config/session.php
-    'driver' => 'ssdb',
+'driver' => 'ssdb',
 ~~~
 
 or

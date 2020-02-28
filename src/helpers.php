@@ -1,7 +1,7 @@
 <?php
 if (!function_exists('ssdb')) {
-    function ssdb()
+    function ssdb(?string $name = null)
     {
-        return app('ssdb.simple');
+        return app('ssdb.manager')->connection($name);
     }
 }

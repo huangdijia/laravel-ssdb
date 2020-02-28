@@ -11,8 +11,10 @@ class Ssdb implements Store
 
     public function __construct($app)
     {
-        $this->ssdb   = app('ssdb.simple');
-        $this->prefix = array_get($app['config']['cache'], 'prefix', '');
+        $this->ssdb = $app['ssdb.manager']->connection(
+            $app['config']->get('cache.ssdb.connection', 'default')
+        );
+        $this->prefix = $app['config']->get('cache.prefix', '');
     }
 
     public function get($key)

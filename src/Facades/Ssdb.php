@@ -2,10 +2,13 @@
 
 namespace Huangdijia\Ssdb\Facades;
 
-use Huangdijia\Ssdb\Simple;
+use Huangdijia\Ssdb\Manager;
 use Illuminate\Support\Facades\Facade;
 
 /**
+ * @method public static array|mixed config(?string $name, $default)
+ * @method public static \Huangdijia\Ssdb\Simple connection(string $name)
+ * @method public static \Huangdijia\Ssdb\Simple[] connections()
  * @method public static mixed set_timeout(int $timeout_ms)
  * @method public static mixed easy()
  * @method public static mixed close()
@@ -104,6 +107,6 @@ class Ssdb extends Facade
 {
     protected static function getFacadeAccessor()
     {
-        return Simple::class; 
+        return Manager::class;
     }
 }
