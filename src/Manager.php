@@ -79,6 +79,6 @@ class Manager
      */
     public function __call($method, $parameters)
     {
-        return $this->app()->{$method}(...$parameters);
+        return $this->connection()->{$method}(...$parameters);
     }
 }
