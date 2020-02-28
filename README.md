@@ -36,6 +36,12 @@ composer require huangdijia/laravel-ssdb
 
 ## Usage
 
+### Connection
+
+~~~php
+$ssdb = Ssdb::connection('default');
+~~~
+
 ### As Facades
 
 ~~~php
