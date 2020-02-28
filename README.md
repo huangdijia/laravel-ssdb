@@ -49,7 +49,7 @@ $value = Ssdb::get('key');
 ### As Helper
 
 ~~~php
-ssdb()->set('key');
+ssdb()->set('key', 'value');
 ssdb()->get('key');
 ~~~
 
@@ -90,9 +90,7 @@ SESSION_DRIVER=ssdb
 
 ## Other
 
-SSDB PHP API
-
-> http://ssdb.io/docs/zh_cn/php/index.html
+[SSDB PHP API](http://ssdb.io/docs/zh_cn/php/index.html)
 
 ## License
 
