@@ -27,6 +27,7 @@ class Manager
      *
      * @param string|null $key
      * @param mixed $default
+     * @return mixed
      */
     public function config(?string $key = null, $default = null)
     {
