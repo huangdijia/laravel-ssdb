@@ -25,9 +25,10 @@ composer require huangdijia/laravel-ssdb
         'default'     => 'default',
         'connections' => [
             'default' => [
-                'host'    => env('SSDB_HOST', '127.0.0.1'),
-                'port'    => env('SSDB_PORT', 8888),
-                'timeout' => env('SSDB_TIMEOUT', 2000),
+                'host'     => env('SSDB_HOST', '127.0.0.1'),
+                'port'     => env('SSDB_PORT', 8888),
+                'timeout'  => env('SSDB_TIMEOUT', 2000),
+                'password' => 'your-password', // optional
             ],
         ],
         // ...

@@ -59,6 +59,10 @@ class Manager
                 $config['port'] ?? 8888,
                 $config['timeout'] ?? 2000
             );
+
+            if (isset($config['password'])) {
+                $this->connections[$name]->auth($config['password']);
+            }
         }
 
         return $this->connections[$name];
