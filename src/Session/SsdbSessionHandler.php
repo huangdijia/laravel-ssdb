@@ -12,7 +12,7 @@ class SsdbSessionHandler implements \SessionHandlerInterface
 
     public function __construct($app)
     {
-        $this->lifetime = $app['config']['session']['lifetime'] ?? 120;
+        $this->lifetime = $app['config']->get('session.lifetime') ?? 120;
         $this->ssdb     = $app['ssdb.manager'];
     }
 
