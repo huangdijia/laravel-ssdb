@@ -4,6 +4,9 @@ namespace Huangdijia\Ssdb\Session;
 
 class SsdbSessionHandler implements \SessionHandlerInterface
 {
+    /**
+     * @var \Huangdijia\Ssdb\Ssdb
+     */
     private $ssdb;
     private $lifetime = 120;
 

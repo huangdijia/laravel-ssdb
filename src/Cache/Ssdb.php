@@ -6,6 +6,9 @@ use Illuminate\Contracts\Cache\Store;
 
 class Ssdb implements Store
 {
+    /**
+     * @var \Huangdijia\Ssdb\Ssdb
+     */
     protected $ssdb;
     protected $prefix;
 
@@ -22,9 +25,9 @@ class Ssdb implements Store
         return $this->ssdb->get($this->prefix . '_' . $key);
     }
 
-    public function put($key, $value, $minutes)
+    public function put($key, $value, $seconds)
     {
-        return $this->ssdb->setx($this->prefix . '_' . $key, $value, $minutes);
+        return $this->ssdb->setx($this->prefix . '_' . $key, $value, $seconds);
     }
 
     public function many(array $keys)
@@ -36,10 +39,10 @@ class Ssdb implements Store
         return $ret;
     }
 
-    public function putMany(array $values, $minutes)
+    public function putMany(array $values, $seconds)
     {
         foreach ($values as $key => $value) {
-            $this->ssdb->set($this->prefix . '_' . $key, $value, $minutes);
+            $this->ssdb->set($this->prefix . '_' . $key, $value, $seconds);
         }
         return true;
     }
