@@ -10,6 +10,10 @@ class Ssdb implements Store
      * @var \Huangdijia\Ssdb\Ssdb
      */
     protected $ssdb;
+    /**
+     * Cache prefix, eg: my_prefix|
+     * @var string
+     */
     protected $prefix;
 
     public function __construct($app)
@@ -22,19 +26,19 @@ class Ssdb implements Store
 
     public function get($key)
     {
-        return $this->ssdb->get($this->prefix . '_' . $key);
+        return $this->ssdb->get($this->prefix . $key);
     }
 
     public function put($key, $value, $seconds)
     {
-        return $this->ssdb->setx($this->prefix . '_' . $key, $value, $seconds);
+        return $this->ssdb->setx($this->prefix . $key, $value, $seconds);
     }
 
     public function many(array $keys)
     {
         $ret = [];
         foreach ($keys as $key) {
-            $ret[$key] = $this->ssdb->get($this->prefix . '_' . $key);
+            $ret[$key] = $this->ssdb->get($this->prefix . $key);
         }
         return $ret;
     }
@@ -42,7 +46,7 @@ class Ssdb implements Store
     public function putMany(array $values, $seconds)
     {
         foreach ($values as $key => $value) {
-            $this->ssdb->set($this->prefix . '_' . $key, $value, $seconds);
+            $this->ssdb->set($this->prefix . $key, $value, $seconds);
         }
         return true;
     }
@@ -50,13 +54,13 @@ class Ssdb implements Store
     public function increment($key, $value = 1)
     {
         $value = (int) $value;
-        return $this->ssdb->incr($this->prefix . '_' . $key, $value);
+        return $this->ssdb->incr($this->prefix . $key, $value);
     }
 
     public function decrement($key, $value = 1)
     {
         $value = (int) $value;
-        return $this->ssdb->incr($this->prefix . '_' . $key, -$value);
+        return $this->ssdb->incr($this->prefix . $key, -$value);
     }
 
     public function getPrefix()
@@ -66,12 +70,12 @@ class Ssdb implements Store
 
     public function forget($key)
     {
-        return $this->ssdb->del($this->prefix . '_' . $key);
+        return $this->ssdb->del($this->prefix . $key);
     }
 
     public function forever($key, $value)
     {
-        return $this->ssdb->set($this->prefix . '_' . $key, $value);
+        return $this->ssdb->set($this->prefix . $key, $value);
     }
 
     public function flush()
